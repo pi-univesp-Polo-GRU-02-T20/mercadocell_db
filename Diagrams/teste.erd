@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="teste.erd">
+	<entities>
+		<data-source id="mysql8-180a20ad306-52368509f1607fdf">
+			<entity id="1" name="bairro" fq-name="db_comercio.bairro" order="0" x="860" y="810">
+				<path name="db_comercio"/>
+			</entity>
+			<entity id="2" name="categoria" fq-name="db_comercio.categoria" order="1" x="883" y="136">
+				<path name="db_comercio"/>
+			</entity>
+			<entity id="3" name="endereco" fq-name="db_comercio.endereco" order="2" x="588" y="687">
+				<path name="db_comercio"/>
+			</entity>
+			<entity id="4" name="estado" fq-name="db_comercio.estado" order="3" x="1358" y="810">
+				<path name="db_comercio"/>
+			</entity>
+			<entity id="5" name="item_operacao" fq-name="db_comercio.item_operacao" order="4" x="325" y="361">
+				<path name="db_comercio"/>
+			</entity>
+			<entity id="6" name="logradouro" fq-name="db_comercio.logradouro" order="5" x="569" y="865">
+				<path name="db_comercio"/>
+			</entity>
+			<entity id="7" name="municipio" fq-name="db_comercio.municipio" order="6" x="1127" y="810">
+				<path name="db_comercio"/>
+			</entity>
+			<entity id="8" name="operacao" fq-name="db_comercio.operacao" order="7" x="295" y="532">
+				<path name="db_comercio"/>
+			</entity>
+			<entity id="9" name="pagamento_operacao" fq-name="db_comercio.pagamento_operacao" order="8" x="44" y="571">
+				<path name="db_comercio"/>
+			</entity>
+			<entity id="10" name="pessoa" fq-name="db_comercio.pessoa" order="9" x="300" y="853">
+				<path name="db_comercio"/>
+			</entity>
+			<entity id="11" name="pessoa_fisica" fq-name="db_comercio.pessoa_fisica" order="10" x="22" y="786">
+				<path name="db_comercio"/>
+			</entity>
+			<entity id="12" name="pessoa_juridica" fq-name="db_comercio.pessoa_juridica" order="11" x="53" y="975">
+				<path name="db_comercio"/>
+			</entity>
+			<entity id="13" name="produto" fq-name="db_comercio.produto" order="12" x="314" y="115">
+				<path name="db_comercio"/>
+			</entity>
+			<entity id="14" name="subcategoria" fq-name="db_comercio.subcategoria" order="13" x="610" y="135">
+				<path name="db_comercio"/>
+			</entity>
+			<entity id="15" name="tipo_pagamento" fq-name="db_comercio.tipo_pagamento" order="14" x="607" y="553">
+				<path name="db_comercio"/>
+			</entity>
+			<entity id="16" name="unidade_medida" fq-name="db_comercio.unidade_medida" order="15" x="614" y="254">
+				<path name="db_comercio"/>
+			</entity>
+			<entity id="17" name="usuario" fq-name="db_comercio.usuario" order="16" x="292" y="1010">
+				<path name="db_comercio"/>
+			</entity>
+			<entity id="18" name="vw_apuracao_faturamento" fq-name="db_comercio.vw_apuracao_faturamento" order="17" x="1011" y="1194">
+				<path name="db_comercio"/>
+			</entity>
+			<entity id="19" name="vw_apuracao_faturamento_detalhado" fq-name="db_comercio.vw_apuracao_faturamento_detalhado" order="18" x="503" y="1196">
+				<path name="db_comercio"/>
+			</entity>
+			<entity id="20" name="vw_apuracao_faturamento_sumarizado" fq-name="db_comercio.vw_apuracao_faturamento_sumarizado" order="19" x="759" y="1196">
+				<path name="db_comercio"/>
+			</entity>
+			<entity id="21" name="vw_produto" fq-name="db_comercio.vw_produto" order="20" x="975" y="549">
+				<path name="db_comercio"/>
+			</entity>
+			<entity id="22" name="vw_subcategoria" fq-name="db_comercio.vw_subcategoria" order="21" x="1231" y="1192">
+				<path name="db_comercio"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="FK_BAIRRO_ENDERECO" fq-name="db_comercio.logradouro.FK_BAIRRO_ENDERECO" type="fk" pk-ref="1" fk-ref="6"/>
+		<relation name="FK_SUBCATEGORIA_CATEGORA" fq-name="db_comercio.subcategoria.FK_SUBCATEGORIA_CATEGORA" type="fk" pk-ref="2" fk-ref="14"/>
+		<relation name="FK_MUNICIPIO_ESTADO" fq-name="db_comercio.municipio.FK_MUNICIPIO_ESTADO" type="fk" pk-ref="4" fk-ref="7"/>
+		<relation name="FK_ENDERECO_LOGRADOURO" fq-name="db_comercio.endereco.FK_ENDERECO_LOGRADOURO" type="fk" pk-ref="6" fk-ref="3"/>
+		<relation name="FK_BAIRRO_MUNICIPIO" fq-name="db_comercio.bairro.FK_BAIRRO_MUNICIPIO" type="fk" pk-ref="7" fk-ref="1"/>
+		<relation name="FK_ITEM_COMPRA" fq-name="db_comercio.item_operacao.FK_ITEM_COMPRA" type="fk" pk-ref="8" fk-ref="5"/>
+		<relation name="FK_PARCELA_COMPRA" fq-name="db_comercio.pagamento_operacao.FK_PARCELA_COMPRA" type="fk" pk-ref="8" fk-ref="9"/>
+		<relation name="FK_ENDERECO_PESSOA" fq-name="db_comercio.endereco.FK_ENDERECO_PESSOA" type="fk" pk-ref="10" fk-ref="3"/>
+		<relation name="FK_OPERACAO_PESSOA" fq-name="db_comercio.operacao.FK_OPERACAO_PESSOA" type="fk" pk-ref="10" fk-ref="8"/>
+		<relation name="FK_PESSOA_FISICA" fq-name="db_comercio.pessoa_fisica.FK_PESSOA_FISICA" type="fk" pk-ref="10" fk-ref="11"/>
+		<relation name="FK_PESSOA_JURIDICA" fq-name="db_comercio.pessoa_juridica.FK_PESSOA_JURIDICA" type="fk" pk-ref="10" fk-ref="12"/>
+		<relation name="FK_USUARIO_PESSOA" fq-name="db_comercio.usuario.FK_USUARIO_PESSOA" type="fk" pk-ref="10" fk-ref="17"/>
+		<relation name="FK_ITEM_COMPRA_PRODUTO" fq-name="db_comercio.item_operacao.FK_ITEM_COMPRA_PRODUTO" type="fk" pk-ref="13" fk-ref="5"/>
+		<relation name="FK_PRODUTO_SUBCATEGORIA" fq-name="db_comercio.produto.FK_PRODUTO_SUBCATEGORIA" type="fk" pk-ref="14" fk-ref="13"/>
+		<relation name="FK_OPERACAO_TIPO_PAGAMENTO" fq-name="db_comercio.operacao.FK_OPERACAO_TIPO_PAGAMENTO" type="fk" pk-ref="15" fk-ref="8"/>
+		<relation name="FK_PRODUTO_UNIDADE_MEDIDA" fq-name="db_comercio.produto.FK_PRODUTO_UNIDADE_MEDIDA" type="fk" pk-ref="16" fk-ref="13"/>
+	</relations>
+</diagram>

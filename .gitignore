@@ -1,2 +1,9 @@
 
 *.bak
+.dbeaver/credentials-config.json
+.dbeaver/credentials-config.json
+.dbeaver/credentials-config.json
+.dbeaver/credentials-config.json
+.dbeaver/credentials-config.json
+.dbeaver/credentials-config.json
+.dbeaver/data-sources.json

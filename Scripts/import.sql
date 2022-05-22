@@ -137,11 +137,11 @@ CREATE TABLE `item_operacao` (
   `COD_OPERACAO` int NOT NULL,
   `COD_PRODUTO` int NOT NULL,
   PRIMARY KEY (`COD_ITEM_OPERACAO`),
-  KEY `FK_ITEM_COMPRA_IDX` (`COD_OPERACAO`),
-  KEY `FK_ITEM_COMPRA_PRODUTO_IDX` (`COD_PRODUTO`),
+  KEY `FK_ITEM_COMPRA` (`COD_OPERACAO`),
+  KEY `FK_ITEM_COMPRA_PRODUTO` (`COD_PRODUTO`),
   CONSTRAINT `FK_ITEM_COMPRA` FOREIGN KEY (`COD_OPERACAO`) REFERENCES `operacao` (`COD_OPERACAO`),
   CONSTRAINT `FK_ITEM_COMPRA_PRODUTO` FOREIGN KEY (`COD_PRODUTO`) REFERENCES `produto` (`COD_PRODUTO`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,8 +150,87 @@ CREATE TABLE `item_operacao` (
 
 LOCK TABLES `item_operacao` WRITE;
 /*!40000 ALTER TABLE `item_operacao` DISABLE KEYS */;
-INSERT INTO `item_operacao` VALUES (2,5,25.00,3,216546521),(5,5,20.00,6,216546521),(6,5,30.00,6,216546521),(7,5,35.00,6,216546521),(8,5,10.00,6,216546521),(9,5,17.00,6,216546521),(10,5,25.00,6,216546521),(11,5,25.00,6,216546521);
+INSERT INTO `item_operacao` VALUES (19,5,20.00,6,216546521),(20,5,20.00,6,216546521),(21,5,20.00,6,216546521),(22,5,20.00,6,216546521),(23,5,20.00,6,216546521),(24,5,20.00,6,216546521),(25,5,20.00,6,216546521),(26,5,20.00,6,216546521),(27,5,20.00,6,216546521),(28,5,20.00,6,216546521),(29,5,20.00,6,216546521),(30,5,20.00,6,216546521),(31,5,20.00,6,216546521),(32,5,20.00,6,216546521),(33,5,20.00,6,216546521),(34,5,20.00,6,216546521),(35,5,20.00,6,216546521),(36,5,20.00,6,216546521),(37,5,20.00,6,216546521),(38,5,20.00,6,216546521),(39,5,20.00,6,216546521),(40,5,20.00,6,216546521),(41,5,20.00,6,216546521),(42,5,20.00,6,216546521),(43,5,20.00,6,216546521),(44,5,20.00,6,216546521),(45,5,20.00,6,216546521),(46,5,20.00,6,216546521),(48,5,20.00,6,216546521),(49,5,20.00,6,216546521),(50,5,20.00,6,216546521),(51,5,20.00,6,216546521),(52,5,20.00,6,216546521),(53,5,20.00,6,216546521),(54,10,20.00,6,216546521),(55,10,20.00,6,216546521),(56,10,20.00,6,216546521),(57,10,20.00,6,216546521),(58,10,20.00,6,216546521),(60,10,20.00,6,216546521),(61,10,20.00,6,216546521),(62,1,20.00,6,216546521),(63,1,20.00,6,216546521),(64,1,20.00,6,216546521),(65,1,20.00,6,216546521),(66,1,20.00,6,216546521),(67,1,20.00,6,216546521),(68,1,20.00,6,216546521),(69,1,20.00,6,216546521),(70,1,20.00,6,216546521),(71,1,20.00,6,216546521),(72,1,20.00,6,216546521),(73,1,20.00,6,216546521),(74,1,20.00,6,216546521),(75,1,20.00,6,216546521),(76,1,20.00,6,216546521),(77,1,20.00,6,216546521),(78,1,20.00,6,216546521),(79,1,20.00,6,216546521),(80,1,20.00,6,216546521),(81,3,20.00,6,216546521),(82,3,20.00,6,216546521),(83,3,20.00,6,216546521),(84,3,20.00,6,216546521),(85,4,20.00,16,216546521),(86,4,20.00,16,216546521),(87,4,20.00,16,216546521),(88,4,20.00,16,216546521),(89,4,20.00,16,216546521),(90,4,20.00,16,216546521),(91,4,20.00,16,216546521),(92,4,20.00,16,216546521),(93,4,20.00,16,216546521),(94,4,20.00,16,216546521),(95,4,20.00,16,216546521),(96,4,20.00,16,216546521),(97,4,20.00,16,216546521),(98,4,20.00,16,216546521),(99,4,20.00,16,216546521),(100,4,20.00,16,216546521),(101,4,20.00,16,216546521),(102,4,20.00,16,216546521),(103,4,20.00,16,216546521),(104,4,20.00,16,216546521),(105,4,20.00,16,216546521),(106,4,20.00,16,216546521),(107,4,20.00,16,216546521),(108,4,20.00,16,216546521),(109,4,20.00,16,216546521),(110,4,20.00,16,216546521),(111,4,20.00,16,216546521),(112,4,20.00,16,216546521),(113,4,20.00,16,216546521),(114,4,20.00,16,216546521),(115,4,20.00,16,216546521);
 /*!40000 ALTER TABLE `item_operacao` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `item_operacao_bkp`
+--
+
+DROP TABLE IF EXISTS `item_operacao_bkp`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `item_operacao_bkp` (
+  `COD_ITEM_OPERACAO` int NOT NULL DEFAULT '0',
+  `QTD_ITEM` float DEFAULT NULL,
+  `VLR_ITEM` decimal(10,2) DEFAULT NULL,
+  `COD_OPERACAO` int NOT NULL,
+  `COD_PRODUTO` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `item_operacao_bkp`
+--
+
+LOCK TABLES `item_operacao_bkp` WRITE;
+/*!40000 ALTER TABLE `item_operacao_bkp` DISABLE KEYS */;
+INSERT INTO `item_operacao_bkp` VALUES (2,5,25.00,3,216546521),(5,5,20.00,6,216546521),(6,5,30.00,6,216546521),(7,5,35.00,6,216546521),(8,5,10.00,6,216546521),(9,5,17.00,6,216546521),(10,5,25.00,6,216546521),(11,5,25.00,6,216546521);
+/*!40000 ALTER TABLE `item_operacao_bkp` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `item_operacao_teste`
+--
+
+DROP TABLE IF EXISTS `item_operacao_teste`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `item_operacao_teste` (
+  `COD_ITEM_OPERACAO` int NOT NULL AUTO_INCREMENT,
+  `QTD_ITEM` float DEFAULT NULL,
+  `VLR_ITEM` decimal(10,2) DEFAULT NULL,
+  `COD_OPERACAO` int NOT NULL,
+  `COD_PRODUTO` int NOT NULL,
+  PRIMARY KEY (`COD_ITEM_OPERACAO`),
+  KEY `FK_ITEM_COMPRA2` (`COD_OPERACAO`),
+  KEY `FK_ITEM_COMPRA_PRODUTO2` (`COD_PRODUTO`),
+  CONSTRAINT `FK_ITEM_COMPRA2` FOREIGN KEY (`COD_OPERACAO`) REFERENCES `operacao` (`COD_OPERACAO`),
+  CONSTRAINT `FK_ITEM_COMPRA_PRODUTO2` FOREIGN KEY (`COD_PRODUTO`) REFERENCES `produto` (`COD_PRODUTO`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `item_operacao_teste`
+--
+
+LOCK TABLES `item_operacao_teste` WRITE;
+/*!40000 ALTER TABLE `item_operacao_teste` DISABLE KEYS */;
+INSERT INTO `item_operacao_teste` VALUES (19,5,20.00,6,216546521);
+/*!40000 ALTER TABLE `item_operacao_teste` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `letras`
+--
+
+DROP TABLE IF EXISTS `letras`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `letras` (
+  `LETRA` varchar(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `letras`
+--
+
+LOCK TABLES `letras` WRITE;
+/*!40000 ALTER TABLE `letras` DISABLE KEYS */;
+INSERT INTO `letras` VALUES ('a'),('b'),('c'),('d'),('e');
+/*!40000 ALTER TABLE `letras` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -232,6 +311,28 @@ INSERT INTO `municipio` VALUES (3500105,'Adamantina',35),(3500204,'Adolfo',35),(
 UNLOCK TABLES;
 
 --
+-- Table structure for table `numeros`
+--
+
+DROP TABLE IF EXISTS `numeros`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `numeros` (
+  `NUMERO` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `numeros`
+--
+
+LOCK TABLES `numeros` WRITE;
+/*!40000 ALTER TABLE `numeros` DISABLE KEYS */;
+INSERT INTO `numeros` VALUES (1),(2),(3),(4),(5);
+/*!40000 ALTER TABLE `numeros` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `operacao`
 --
 
@@ -254,7 +355,7 @@ CREATE TABLE `operacao` (
   KEY `FK_OPERACAO_TIPO_PAGAMENTO` (`COD_TIPO_PAGAMENTO`),
   CONSTRAINT `FK_OPERACAO_PESSOA` FOREIGN KEY (`COD_PESSOA`) REFERENCES `pessoa` (`COD_PESSOA`),
   CONSTRAINT `FK_OPERACAO_TIPO_PAGAMENTO` FOREIGN KEY (`COD_TIPO_PAGAMENTO`) REFERENCES `tipo_pagamento` (`COD_TIPO_PAGAMENTO`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -263,7 +364,7 @@ CREATE TABLE `operacao` (
 
 LOCK TABLES `operacao` WRITE;
 /*!40000 ALTER TABLE `operacao` DISABLE KEYS */;
-INSERT INTO `operacao` VALUES (3,'2021-05-02 19:52:17','265546132450',10.00,2,'P',13,0,'V',1),(4,'2021-05-02 19:52:17','265546132456',10.00,2,'P',13,0,'V',2),(5,'2021-10-31 00:00:00','256545623155',95.00,5,'P',9,0,'C',2),(6,'2021-11-02 19:52:17','265546132421',25.00,1,'P',9,1,'C',3),(7,'2021-05-02 19:52:17','265546132450',10.00,2,'P',13,0,'V',1);
+INSERT INTO `operacao` VALUES (3,'2021-05-02 19:52:17','265546132450',10.00,2,'P',13,0,'V',1),(4,'2021-05-02 19:52:17','265546132456',10.00,2,'P',13,0,'V',2),(5,'2021-10-31 00:00:00','256545623155',95.00,5,'P',9,0,'C',2),(6,'2021-11-02 19:52:17','265546132421',25.00,1,'P',9,1,'C',3),(7,'2021-05-02 19:52:17','265546132450',10.00,2,'P',13,0,'V',1),(12,'2022-05-21 00:00:00','65465465123AS',50.00,1,'P',9,1,'C',4),(15,'2022-05-21 00:00:00','65465465123AS',50.00,1,'P',9,1,'C',4),(16,'2022-05-21 00:00:00','65465465123AS',50.00,1,'P',9,1,'V',4);
 /*!40000 ALTER TABLE `operacao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -307,7 +408,7 @@ CREATE TABLE `pessoa` (
   `COD_PESSOA` int NOT NULL AUTO_INCREMENT,
   `NME_PESSOA` varchar(45) NOT NULL,
   PRIMARY KEY (`COD_PESSOA`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -316,7 +417,7 @@ CREATE TABLE `pessoa` (
 
 LOCK TABLES `pessoa` WRITE;
 /*!40000 ALTER TABLE `pessoa` DISABLE KEYS */;
-INSERT INTO `pessoa` VALUES (9,'Mauricio de Souza'),(13,'AMERICANAS'),(15,'Celso Portioli');
+INSERT INTO `pessoa` VALUES (9,'Mauricio de Souza'),(13,'AMERICANAS'),(15,'Celso Portioli'),(20,'Jerome Powell');
 /*!40000 ALTER TABLE `pessoa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -407,7 +508,7 @@ CREATE TABLE `produto` (
 
 LOCK TABLES `produto` WRITE;
 /*!40000 ALTER TABLE `produto` DISABLE KEYS */;
-INSERT INTO `produto` (`COD_PRODUTO`, `NME_PRODUTO`, `DSC_PRODUTO`, `COD_SUBCATEGORIA`, `COD_UNIDADE_MEDIDA`, `QTD_ESTOQUE_MIN`, `QTD_ESTOQUE_MAX`, `QTD_ESTOQUE_ATUAL`) VALUES (216546521,'Carrinho de controle remoto Hotweels SJ23','Hotwells',1,1,5,40,30),(216546522,'Boneca Barbie','Boneca Barbie Princesas edição especial KIS34',2,2,5,10,5),(216546523,'Caixa de Som Sem fio','Caixa de som Sem fio JBL q10',3,2,2,10,5),(216546524,'Caneta BIC','Caneta BIC preta ',15,2,20,50,5),(216546525,'Case com anel Moto G','Case com Anel Moto G Preto',4,2,2,5,5),(216546526,'Case com anel Moto G','Case com Anel Moto G Amarelo',4,2,2,5,5),(216546527,'Case com anel Moto G','Case com Anel Moto G Verde',4,2,2,5,5),(216546528,'Caderno 20 matérias','Caderno espiral capa dura Jandaia',12,2,2,10,5),(216546529,'Caderno 20 matérias','Caderno espiral capa dura Tilibra',12,2,2,10,5),(216546530,'Tenis Nike','Tenis Nike JJDASIUN2',9,2,2,10,5),(216546532,'Carrinho de controle remoto Hotweels SJ23','Hotwells',1,1,2,5,5),(216546533,'Carrinho de controle remoto Hotweels SJ23','Hotwells',1,1,2,5,5),(216546534,'Carrinho de controle remoto Hotweels SJ23','Hotwells',1,1,2,5,5);
+INSERT INTO `produto` (`COD_PRODUTO`, `NME_PRODUTO`, `DSC_PRODUTO`, `COD_SUBCATEGORIA`, `COD_UNIDADE_MEDIDA`, `QTD_ESTOQUE_MIN`, `QTD_ESTOQUE_MAX`, `QTD_ESTOQUE_ATUAL`) VALUES (216546521,'Carrinho de controle remoto Hotweels SJ23','Hotwells',1,1,5,40,-9),(216546522,'Boneca Barbie','Boneca Barbie Princesas edição especial KIS34',2,2,5,10,5),(216546523,'Caixa de Som Sem fio','Caixa de som Sem fio JBL q10',3,2,2,10,5),(216546524,'Caneta BIC','Caneta BIC preta ',15,2,20,50,5),(216546525,'Case com anel Moto G','Case com Anel Moto G Preto',4,2,2,5,5),(216546526,'Case com anel Moto G','Case com Anel Moto G Amarelo',4,2,2,5,5),(216546527,'Case com anel Moto G','Case com Anel Moto G Verde',4,2,2,5,5),(216546528,'Caderno 20 matérias','Caderno espiral capa dura Jandaia',12,2,2,10,5),(216546529,'Caderno 20 matérias','Caderno espiral capa dura Tilibra',12,2,2,10,5),(216546530,'Tenis Nike','Tenis Nike JJDASIUN2',9,2,2,10,5),(216546532,'Carrinho de controle remoto Hotweels SJ23','Hotwells',1,1,2,5,5),(216546533,'Carrinho de controle remoto Hotweels SJ23','Hotwells',1,1,2,5,5),(216546534,'Carrinho de controle remoto Hotweels SJ23','Hotwells',1,1,2,5,5);
 /*!40000 ALTER TABLE `produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -500,12 +601,12 @@ CREATE TABLE `usuario` (
   `DSC_SENHA` varchar(128) DEFAULT NULL,
   `FLG_ATIVO` tinyint DEFAULT NULL,
   `COD_PESSOA` int DEFAULT NULL,
-  `DSC_COMPLEMENTO_SENHA` varchar(15) DEFAULT NULL,
+  `DSC_COMPLEMENTO_SENHA` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`COD_USUARIO`),
   UNIQUE KEY `DSC_LOGIN_UNIQUE` (`DSC_LOGIN`),
   KEY `FK_USUARIO_PESSOA` (`COD_PESSOA`),
   CONSTRAINT `FK_USUARIO_PESSOA` FOREIGN KEY (`COD_PESSOA`) REFERENCES `pessoa` (`COD_PESSOA`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -514,7 +615,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (6,'string','$2a$10$fGU1HL8dGRdzV2fbHUNLn.3NfgTyGfoq7OHrZqjnhBvp9dAJyybxe',1,NULL,NULL),(9,'TESTE CAD','$2a$10$q3XRJNoPbRTCE/eigWdy2u3vnhLmJlg.O/PUW2iD0ape4GBh9AjK.',1,NULL,NULL),(10,'Leandro W','$2a$10$QP3vPpIbyOT30.QDV3t.oOLrEkKcZRxFwt4QAaHSJzRdn7e4za0eS',1,NULL,NULL),(17,'AlencarT','$2a$10$ywmZPSjx/rSDc0C71xAOO.MQpfwzHyraxQKNl9gTg4pBKqFuOsLdC',1,NULL,NULL),(20,'celsop','$2a$10$OXQuqvDUnuC7kngSOfyNv.ilU0a3FfquJs6IFAti6LZj3L/AKBDBC',1,15,NULL);
+INSERT INTO `usuario` VALUES (6,'string','$2a$10$fGU1HL8dGRdzV2fbHUNLn.3NfgTyGfoq7OHrZqjnhBvp9dAJyybxe',1,NULL,NULL),(9,'TESTE CAD','$2a$10$q3XRJNoPbRTCE/eigWdy2u3vnhLmJlg.O/PUW2iD0ape4GBh9AjK.',1,NULL,NULL),(10,'Leandro W','$2a$10$QP3vPpIbyOT30.QDV3t.oOLrEkKcZRxFwt4QAaHSJzRdn7e4za0eS',1,NULL,NULL),(17,'AlencarT','$2a$10$ywmZPSjx/rSDc0C71xAOO.MQpfwzHyraxQKNl9gTg4pBKqFuOsLdC',1,NULL,NULL),(20,'celsop','$2a$10$OXQuqvDUnuC7kngSOfyNv.ilU0a3FfquJs6IFAti6LZj3L/AKBDBC',1,15,NULL),(23,'mteste','$2a$10$QSgymv7Chf75RZ9DecqN4.2C/JwsHiWR6QketsKXzUjClkAjvbAJW',1,20,'1652041405929');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -673,4 +774,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-08 12:10:43
+-- Dump completed on 2022-05-21 21:18:06
